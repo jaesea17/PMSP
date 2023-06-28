@@ -3,7 +3,7 @@ import { StationsInstance } from "../../models/stations/stationsModel";
 
 export async function getStation(req: express.Request, res: express.Response) {
     try {
-        const limit = req.query?.limit as number | undefined;
+        // const limit = req.query?.limit as number | undefined;
         const { id } = req.params;
         const record = await StationsInstance.findOne({ where: { id } })
 
