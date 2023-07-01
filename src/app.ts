@@ -4,8 +4,9 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from 'cors';
 
-import homeRouter from './routes/userRoutes/userRoutes';
+import userRouter from './routes/userRoutes/userRoutes';
 import adminRouter from './routes/adminRoutes/admin';
+
 // import userRouter from './routes/userRoutes';
 
 const app = express();
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api", homeRouter);
+app.use("/api", userRouter);
 app.use("/api/admin", adminRouter);
 
 

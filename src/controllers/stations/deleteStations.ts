@@ -1,6 +1,5 @@
 import express from "express";
 import { StationsInstance } from "../../models/stations/stationsModel";
-import { log } from "console";
 
 export async function deleteAllStations(req: express.Request, res: express.Response) {
     // res.json({ message: 'Hello User' });

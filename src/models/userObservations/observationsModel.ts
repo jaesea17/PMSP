@@ -7,9 +7,9 @@ interface ObservAttributes {
     queue: string
 }
 
-export class UsersInstance extends Model<ObservAttributes>{ }
+export class ObservInstance extends Model<ObservAttributes>{ }
 
-UsersInstance.init({
+ObservInstance.init({
     id: {
         type: DataTypes.STRING,
         primaryKey: true,

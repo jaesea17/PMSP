@@ -15,7 +15,7 @@ export async function getStations(req: express.Request, res: express.Response) {
     } catch (err) {
         res.status(500).json({
             message: 'failed to retrieve Stations',
-            route: '/admin/getStation'
+            route: '/admin/station/get'
         })
     }
 }
