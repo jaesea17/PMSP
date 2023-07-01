@@ -1,9 +1,15 @@
 import Joi from "joi";
 
 export const createPetrolSchema = Joi.object().keys({
-    name: Joi.number().required()
+    price: Joi.number().required(),
+    isAvailable: Joi.boolean().required(),
+    likes: Joi.number().required(),
+    stationId: Joi.string().required()
 })
 
 export const updatePetrolSchema = Joi.object().keys({
-    name: Joi.number()
+    price: Joi.number(),
+    isAvailable: Joi.boolean(),
+    likes: Joi.number(),
+    stationId: Joi.string()
 })

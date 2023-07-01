@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const getStations_1 = require("../../controllers/stations/getStations");
+const registerUser_1 = require("../../controllers/users/registerUser");
+const getUser_1 = require("../../controllers/users/getUser");
+const getAllUsers_1 = require("../../controllers/users/getAllUsers");
+const loginUser_1 = require("../../controllers/users/loginUser");
+const updateUser_1 = require("../../controllers/users/updateUser");
+const deleteAllUsers_1 = require("../../controllers/users/deleteAllUsers");
+const deleteUser_1 = require("../../controllers/users/deleteUser");
+const router = express_1.default.Router();
+router.get("/", getStations_1.getStations);
+router.get("/get/:id", getUser_1.getUser);
+router.get("/getAll", getAllUsers_1.getUsers);
+router.post("/create", registerUser_1.registerUser);
+router.post("/login", loginUser_1.loginUser);
+router.patch("/update/:id", updateUser_1.updateUser);
+router.delete("/delete/:id", deleteUser_1.deleteUser);
+router.delete("/delete", deleteAllUsers_1.deleteUsers);
+exports.default = router;

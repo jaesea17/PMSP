@@ -22,19 +22,19 @@ export async function updateStation(req: express.Request, res: express.Response)
             })
         }
 
-        const updatedTrip = await record.update({
+        const updatedStation = await record.update({
             name,
         })
 
         return res.status(200).json({
             message: 'You have successfully updated Station',
-            record: updatedTrip
+            record: updatedStation
         })
 
     } catch (err) {
         return res.status(500).json({
             message: 'failed to update Station',
-            route: '/update/:id'
+            route: '/admin/updateStation/:id'
         })
     }
 }

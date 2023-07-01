@@ -95,6 +95,8 @@
   "include": [
     "src",
     "typings.d.ts",
-    "createCommodities"
+    "createCommodities",
+    "controllers",
+    "controllers"
   ]
 }

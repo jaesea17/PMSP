@@ -3,7 +3,7 @@ import { updatePetrolSchema } from "../../../utils/commodities/petrolUtils";
 import { PetrolInstance } from "../../../models/commodities/petrolModel";
 import { options } from "../../../utils/options";
 
-export async function updatePetrolCommodity(req: express.Request, res: express.Response) {
+export async function updatePetrol(req: express.Request, res: express.Response) {
     // res.json({ message: 'Hello User' });
     try {
         const { id } = req.params;

@@ -4,8 +4,8 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from 'cors';
 
-import homeRouter from './routes/landingPage';
-import adminRouter from './routes/adminRoutes';
+import homeRouter from './routes/userRoutes/userRoutes';
+import adminRouter from './routes/adminRoutes/admin';
 // import userRouter from './routes/userRoutes';
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors())
 
 import db from "./config/database.config";
 
-db.sync().then(() => {
+db.sync({ force: false }).then(() => {
   console.log("connected successfully to database");
 });
 
@@ -23,8 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api/homeRouter", homeRouter);
+app.use("/api", homeRouter);
 app.use("/api/admin", adminRouter);
+
 
 
 export default app;

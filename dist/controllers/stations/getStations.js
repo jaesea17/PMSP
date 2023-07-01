@@ -16,7 +16,7 @@ async function getStations(req, res) {
     catch (err) {
         res.status(500).json({
             message: 'failed to retrieve Stations',
-            route: '/read '
+            route: '/admin/getStation'
         });
     }
 }

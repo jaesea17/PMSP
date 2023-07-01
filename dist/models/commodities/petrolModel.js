@@ -11,22 +11,28 @@ class PetrolInstance extends sequelize_1.Model {
 exports.PetrolInstance = PetrolInstance;
 PetrolInstance.init({
     id: {
-        type: sequelize_1.DataTypes.UUIDV4,
+        type: sequelize_1.DataTypes.STRING,
         primaryKey: true,
         allowNull: false
     },
     price: {
-        type: sequelize_1.DataTypes.NUMBER,
+        type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
     },
     isAvailable: {
         type: sequelize_1.DataTypes.BOOLEAN
     },
+    likes: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false
+    },
     stationId: {
-        type: sequelize_1.DataTypes.UUIDV4,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false
     },
 }, {
     sequelize: database_config_1.default,
     tableName: 'petrol'
 });
+//Establishing the one to many relationship
+// PetrolInstance.belongsTo(StationsInstance, { foreignKey: 'stationId' });

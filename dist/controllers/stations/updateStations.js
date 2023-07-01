@@ -1,14 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateStations = void 0;
-const utils_1 = require("../../utils/utils");
+exports.updateStation = void 0;
+const stationsUtils_1 = require("../../utils/stations/stationsUtils");
 const stationsModel_1 = require("../../models/stations/stationsModel");
-async function updateStations(req, res) {
+const options_1 = require("../../utils/options");
+async function updateStation(req, res) {
     // res.json({ message: 'Hello User' });
     try {
         const { id } = req.params;
         const { name } = req.body;
-        const validateUpdate = utils_1.updateStationsSchema.validate(req.body, utils_1.options);
+        const validateUpdate = stationsUtils_1.updateStationsSchema.validate(req.body, options_1.options);
         if (validateUpdate.error) {
             return res.status(400).json({ Error: validateUpdate.error.details[0].message });
         }
@@ -22,7 +23,7 @@ async function updateStations(req, res) {
             name,
         });
         return res.status(200).json({
-            message: 'You have successfully updated Bookedtrip',
+            message: 'You have successfully updated Station',
             record: updatedTrip
         });
     }
@@ -33,4 +34,4 @@ async function updateStations(req, res) {
         });
     }
 }
-exports.updateStations = updateStations;
+exports.updateStation = updateStation;

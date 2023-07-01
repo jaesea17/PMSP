@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const createStations_1 = require("../../controllers/stations/createStations");
+const getStations_1 = require("../../controllers/stations/getStations");
+const getStation_1 = require("../../controllers/stations/getStation");
+const updateStation_1 = require("../../controllers/stations/updateStation");
+const deleteStation_1 = require("../../controllers/stations/deleteStation");
+const deleteStations_1 = require("../../controllers/stations/deleteStations");
+const router = express_1.default.Router();
+router.get("/getAll", getStations_1.getStations);
+router.get("/get/:id", getStation_1.getStation);
+router.post("/create", createStations_1.createStation);
+router.patch("/update/:id", updateStation_1.updateStation);
+router.delete("/delete/:id", deleteStation_1.deleteStation);
+router.delete("/deleteAll", deleteStations_1.deleteAllStations);
+exports.default = router;
