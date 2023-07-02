@@ -22,6 +22,18 @@ ObservInstance.init({
     queue: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
+    },
+    likes: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false
+    },
+    userId: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false
+    },
+    commodityId: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize: database_config_1.default,

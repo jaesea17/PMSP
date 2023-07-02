@@ -4,10 +4,12 @@ import { ObservInstance } from "../../models/userObservations/observationsModel"
 export async function getObservations(req: express.Request, res: express.Response) {
     try {
         const limit = req.query?.limit as number | undefined
+        console.log("observationRoutes 7")
         const { count, rows } = await ObservInstance.findAndCountAll({
             where: {}, limit,
         });
 
+        console.log("observationRoutes 12", rows)
         return res.status(200).json({
             message: 'Retrieved observations successfully',
             products: rows

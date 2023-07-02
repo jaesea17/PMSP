@@ -15,17 +15,18 @@ export async function registerUser(req: express.Request, res: express.Response) 
             });
         }
 
-        const passwordHash = await bcrypt.hash(req.body.password, 8);
+        const hashedPassword = await bcrypt.hash(req.body.password, 8);
 
-        if (await UsersInstance.findOne({ where: { userName: req.body.email } })) {
+        if (await UsersInstance.findOne({ where: { userName: req.body?.userName } })) {
             return res.status(409).json({
                 message: "Username already exists"
             })
         }
 
         const record = await UsersInstance.create({
-            id: id,
-            ...req.body
+            id,
+            ...req.body,
+            password: hashedPassword
         });
         return res.status(200).json({
             message: "registered successfully",

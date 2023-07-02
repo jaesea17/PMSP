@@ -11,7 +11,7 @@ const updateStation_1 = require("../../controllers/stations/updateStation");
 const deleteStation_1 = require("../../controllers/stations/deleteStation");
 const deleteStations_1 = require("../../controllers/stations/deleteStations");
 const router = express_1.default.Router();
-router.get("/getAll", getStations_1.getStations);
+router.get("/get", getStations_1.getStations);
 router.get("/get/:id", getStation_1.getStation);
 router.post("/create", createStations_1.createStation);
 router.patch("/update/:id", updateStation_1.updateStation);

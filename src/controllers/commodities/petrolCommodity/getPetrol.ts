@@ -1,6 +1,6 @@
 import express from "express";
 import { PetrolInstance } from "../../../models/commodities/petrolModel";
-import { StationsInstance } from "../../../models/stations/stationsModel";
+import { ObservInstance } from "../../../models/userObservations/observationsModel";
 
 export async function getPetrol(req: express.Request, res: express.Response) {
     try {
@@ -9,8 +9,8 @@ export async function getPetrol(req: express.Request, res: express.Response) {
         const record = await PetrolInstance.findOne({
             where: { id },
             include: {
-                model: StationsInstance,
-                as: "station"
+                model: ObservInstance,
+                as: "observations"
             }
         })
         return res.status(200).json({

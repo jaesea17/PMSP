@@ -7,10 +7,13 @@ import { PetrolInstance } from "../../../models/commodities/petrolModel";
 export async function createPetrol(req: express.Request | any, res: express.Response) {
     try {
         const id = uuid4();
-        const validationResult = createPetrolSchema.validate(req.body, options)
+        console.log("createPetrol 10");
+        const validationResult = createPetrolSchema.validate(req.body, options);
+        console.log("createPetrol 12");
         if (validationResult.error) {
             return res.status(400).json({ Error: validationResult.error.details[0].message })
         }
+        console.log("createPetrol 16");
         const record = await PetrolInstance.create({
             id,
             ...req.body

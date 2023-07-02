@@ -11,10 +11,9 @@ async function getStation(req, res) {
             where: { id },
             include: {
                 model: petrolModel_1.PetrolInstance,
-                as: "petrol"
+                as: "commodity"
             }
         });
-        console.log("getStation 19");
         return res.status(200).json({
             message: 'Retrieved Station successfully',
             product: record

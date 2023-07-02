@@ -10,7 +10,7 @@ const createPetrol_1 = require("../../controllers/commodities/petrolCommodity/cr
 const updatePetrol_1 = require("../../controllers/commodities/petrolCommodity/updatePetrol");
 const deletePetrol_1 = require("../../controllers/commodities/petrolCommodity/deletePetrol");
 const router = express_1.default.Router();
-router.get("/getAll", getPetrols_1.getPetrols);
+router.get("/get", getPetrols_1.getPetrols);
 router.get("/get/:id", getPetrol_1.getPetrol);
 router.post("/create", createPetrol_1.createPetrol);
 router.patch("/update/:id", updatePetrol_1.updatePetrol);

@@ -15,7 +15,7 @@ const deleteUser_1 = require("../../controllers/users/deleteUser");
 const router = express_1.default.Router();
 router.get("/", getStations_1.getStations);
 router.get("/get/:id", getUser_1.getUser);
-router.get("/getAll", getAllUsers_1.getUsers);
+router.get("/get", getAllUsers_1.getUsers);
 router.post("/create", registerUser_1.registerUser);
 router.post("/login", loginUser_1.loginUser);
 router.patch("/update/:id", updateUser_1.updateUser);

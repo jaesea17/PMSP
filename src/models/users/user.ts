@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../../config/database.config'
+import { ObservInstance } from '../userObservations/observationsModel';
 
 interface UsersAttributes {
     id: string,
@@ -30,5 +31,5 @@ UsersInstance.init({
 })
 
 //Establishing the one to many relationship
-// StationsInstance.hasMany(PetrolInstance, { foreignKey: 'stationId', as: 'petrol' });
-// PetrolInstance.belongsTo(StationsInstance, { foreignKey: 'stationId' });
+UsersInstance.hasMany(ObservInstance, { foreignKey: 'userId', as: 'observations' });
+ObservInstance.belongsTo(UsersInstance, { foreignKey: 'userId', as: "user" });

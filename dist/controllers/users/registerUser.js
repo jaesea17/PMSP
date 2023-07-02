@@ -18,15 +18,16 @@ async function registerUser(req, res) {
                 Error: validationResult.error.details[0].message,
             });
         }
-        const passwordHash = await bcrypt_1.default.hash(req.body.password, 8);
-        if (await user_1.UsersInstance.findOne({ where: { userName: req.body.email } })) {
+        const hashedPassword = await bcrypt_1.default.hash(req.body.password, 8);
+        if (await user_1.UsersInstance.findOne({ where: { userName: req.body?.userName } })) {
             return res.status(409).json({
                 message: "Username already exists"
             });
         }
         const record = await user_1.UsersInstance.create({
-            id: id,
-            ...req.body
+            id,
+            ...req.body,
+            password: hashedPassword
         });
         return res.status(200).json({
             message: "registered successfully",

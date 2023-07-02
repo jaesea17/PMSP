@@ -19,7 +19,7 @@ async function loginUser(req, res) {
             });
         }
         const User = (await user_1.UsersInstance.findOne({
-            where: { userName: req.body.userName }
+            where: { userName: req.body?.userName }
         }));
         if (!User) {
             return res.status(401).json({

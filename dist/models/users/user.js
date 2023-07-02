@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersInstance = void 0;
 const sequelize_1 = require("sequelize");
 const database_config_1 = __importDefault(require("../../config/database.config"));
+const observationsModel_1 = require("../userObservations/observationsModel");
 class UsersInstance extends sequelize_1.Model {
 }
 exports.UsersInstance = UsersInstance;
@@ -28,5 +29,5 @@ UsersInstance.init({
     tableName: 'users'
 });
 //Establishing the one to many relationship
-// StationsInstance.hasMany(PetrolInstance, { foreignKey: 'stationId', as: 'petrol' });
-// PetrolInstance.belongsTo(StationsInstance, { foreignKey: 'stationId' });
+UsersInstance.hasMany(observationsModel_1.ObservInstance, { foreignKey: 'userId', as: 'observations' });
+observationsModel_1.ObservInstance.belongsTo(UsersInstance, { foreignKey: 'userId', as: "user" });

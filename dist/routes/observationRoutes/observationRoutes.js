@@ -11,7 +11,7 @@ const deleteObservation_1 = require("../../controllers/observations/deleteObserv
 const deleteObservations_1 = require("../../controllers/observations/deleteObservations");
 const router = express_1.default.Router();
 router.get("/get/:id", getObservation_1.getObservation);
-router.get("/getAll", getObservations_1.getObservations);
+router.get("/get", getObservations_1.getObservations);
 router.post("/create", createObservation_1.createObservation);
 router.patch("/update/:id");
 router.delete("/delete/:id", deleteObservation_1.deleteObservation);

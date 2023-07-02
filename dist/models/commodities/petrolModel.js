@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PetrolInstance = void 0;
 const sequelize_1 = require("sequelize");
 const database_config_1 = __importDefault(require("../../config/database.config"));
+const observationsModel_1 = require("../userObservations/observationsModel");
 class PetrolInstance extends sequelize_1.Model {
 }
 exports.PetrolInstance = PetrolInstance;
@@ -15,16 +16,16 @@ PetrolInstance.init({
         primaryKey: true,
         allowNull: false
     },
+    commodity: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false
+    },
     price: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
     },
     isAvailable: {
         type: sequelize_1.DataTypes.BOOLEAN
-    },
-    likes: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false
     },
     stationId: {
         type: sequelize_1.DataTypes.STRING,
@@ -35,4 +36,5 @@ PetrolInstance.init({
     tableName: 'petrol'
 });
 //Establishing the one to many relationship
-// PetrolInstance.belongsTo(StationsInstance, { foreignKey: 'stationId' });
+PetrolInstance.hasMany(observationsModel_1.ObservInstance, { foreignKey: 'commodityId', as: "observations" });
+observationsModel_1.ObservInstance.belongsTo(PetrolInstance, { foreignKey: 'commodityId', as: "commodity" });

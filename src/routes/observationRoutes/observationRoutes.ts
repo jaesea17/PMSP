@@ -9,7 +9,7 @@ import { deleteAllObservations } from "../../controllers/observations/deleteObse
 const router = express.Router();
 
 router.get("/get/:id", getObservation);
-router.get("/getAll", getObservations);
+router.get("/get", getObservations);
 
 router.post("/create", createObservation);
 

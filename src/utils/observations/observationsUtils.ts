@@ -1,12 +1,18 @@
 import Joi from "joi";
 
 export const createObservationsSchema = Joi.object().keys({
-    price: Joi.string().required(),
-    queue: Joi.string().required()
+    price: Joi.number().required(),
+    queue: Joi.string().required(),
+    likes: Joi.number().required(),
+    userId: Joi.string().required(),
+    commodityId: Joi.string().required()
 })
 
 export const updateObservationsSchema = Joi.object().keys({
-    price: Joi.string().required(),
-    queue: Joi.string().required()
+    price: Joi.number(),
+    queue: Joi.string(),
+    likes: Joi.number(),
+    userId: Joi.string(),
+    commodityId: Joi.string()
 })
 

@@ -7,7 +7,7 @@ import { deleteAllPetrol, deletePetrol } from "../../controllers/commodities/pet
 
 const router = express.Router();
 
-router.get("/getAll", getPetrols);
+router.get("/get", getPetrols);
 router.get("/get/:id", getPetrol);
 
 router.post("/create", createPetrol);

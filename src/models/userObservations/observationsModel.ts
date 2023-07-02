@@ -4,7 +4,10 @@ import db from '../../config/database.config'
 interface ObservAttributes {
     id: string,
     price: number,
-    queue: string
+    queue: string,
+    likes: number,
+    userId: string,
+    commodityId: string,
 }
 
 export class ObservInstance extends Model<ObservAttributes>{ }
@@ -15,12 +18,23 @@ ObservInstance.init({
         primaryKey: true,
         allowNull: false
     },
-
     price: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
     queue: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    likes: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    userId: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    commodityId: {
         type: DataTypes.STRING,
         allowNull: false
     }

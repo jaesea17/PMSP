@@ -8,7 +8,7 @@ import { deleteAllStations } from "../../controllers/stations/deleteStations";
 
 const router = express.Router();
 
-router.get("/getAll", getStations);
+router.get("/get", getStations);
 router.get("/get/:id", getStation);
 
 router.post("/create", createStation);

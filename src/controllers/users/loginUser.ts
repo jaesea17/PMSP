@@ -16,8 +16,9 @@ export async function loginUser(req: express.Request, res: express.Response) {
         }
 
         const User = (await UsersInstance.findOne({
-            where: { userName: req.body.userName }
+            where: { userName: req.body?.userName }
         })) as unknown as { [key: string]: string };
+
 
         if (!User) {
             return res.status(401).json({
@@ -27,7 +28,6 @@ export async function loginUser(req: express.Request, res: express.Response) {
 
         const { id } = User;
         const token = generateToken({ id });
-
         const validUser = await bcrypt.compare(req.body.password, User.password);
 
         if (!validUser) {
@@ -35,7 +35,6 @@ export async function loginUser(req: express.Request, res: express.Response) {
                 message: "Incorrect username or password",
             });
         }
-
         if (validUser) {
             return res.status(200).json({
                 message: "Login successful",

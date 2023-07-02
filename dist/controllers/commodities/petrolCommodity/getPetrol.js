@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPetrol = void 0;
 const petrolModel_1 = require("../../../models/commodities/petrolModel");
-const stationsModel_1 = require("../../../models/stations/stationsModel");
+const observationsModel_1 = require("../../../models/userObservations/observationsModel");
 async function getPetrol(req, res) {
     try {
         const { id } = req.params;
@@ -10,8 +10,8 @@ async function getPetrol(req, res) {
         const record = await petrolModel_1.PetrolInstance.findOne({
             where: { id },
             include: {
-                model: stationsModel_1.StationsInstance,
-                as: "station"
+                model: observationsModel_1.ObservInstance,
+                as: "observations"
             }
         });
         return res.status(200).json({

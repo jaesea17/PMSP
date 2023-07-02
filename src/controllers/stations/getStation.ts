@@ -10,10 +10,9 @@ export async function getStation(req: express.Request, res: express.Response) {
             where: { id },
             include: {
                 model: PetrolInstance,
-                as: "petrol"
+                as: "commodity"
             }
         })
-        console.log("getStation 19")
         return res.status(200).json({
             message: 'Retrieved Station successfully',
             product: record

@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/", getStations);
 router.get("/get/:id", getUser);
-router.get("/getAll", getUsers);
+router.get("/get", getUsers);
 
 router.post("/create", registerUser);
 router.post("/login", loginUser);

@@ -1,5 +1,6 @@
 import express from "express";
 import { ObservInstance } from "../../models/userObservations/observationsModel";
+import { UsersInstance } from "../../models/users/user";
 
 export async function getObservation(req: express.Request, res: express.Response) {
     try {
@@ -7,12 +8,11 @@ export async function getObservation(req: express.Request, res: express.Response
         const { id } = req.params;
         const record = await ObservInstance.findOne({
             where: { id },
-            // include: {
-            //     model: PetrolInstance,
-            //     as: "petrol"
-            // }
+            include: {
+                model: UsersInstance,
+                as: "user"
+            }
         })
-        console.log("getStation 19")
         return res.status(200).json({
             message: 'Retrieved observation successfully',
             product: record
