@@ -9,14 +9,22 @@ async function getObservation(req, res) {
         const { id } = req.params;
         const record = await observationsModel_1.ObservInstance.findOne({
             where: { id },
-            include: {
-                model: user_1.UsersInstance,
-                as: "user"
-            }
+            include: [
+                {
+                    model: user_1.UsersInstance,
+                    as: "user",
+                    // separate: true,
+                },
+                // {
+                //     model: PetrolInstance,
+                //     as: "Commodity",
+                //     // separate: true
+                // }
+            ]
         });
         return res.status(200).json({
             message: 'Retrieved observation successfully',
-            product: record
+            observation: record
         });
     }
     catch (err) {

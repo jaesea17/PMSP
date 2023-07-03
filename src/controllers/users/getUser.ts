@@ -1,6 +1,7 @@
 import express from "express";
 import { UsersInstance } from "../../models/users/user";
 import { ObservInstance } from "../../models/userObservations/observationsModel";
+import { PetrolInstance } from "../../models/commodities/petrolModel";
 
 export async function getUser(req: express.Request, res: express.Response) {
     try {
@@ -8,14 +9,22 @@ export async function getUser(req: express.Request, res: express.Response) {
         const { id } = req.params;
         const record = await UsersInstance.findOne({
             where: { id },
-            include: {
-                model: ObservInstance,
-                as: "observations"
-            }
+            include: [
+                {
+                    model: ObservInstance,
+                    as: "observations",
+                    include: [
+                        {
+                            model: PetrolInstance,
+                            as: "commodity"
+                        }
+                    ]
+                }
+            ]
         })
         return res.status(200).json({
             message: 'Retrieved user successfully',
-            product: record
+            user: record
         })
     } catch (err) {
         res.status(500).json({

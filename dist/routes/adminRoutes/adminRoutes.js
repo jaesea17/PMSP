@@ -11,7 +11,7 @@ const updateAdmin_1 = require("../../controllers/admins/updateAdmin");
 const deleteAdmin_1 = require("../../controllers/admins/deleteAdmin");
 const deleteAllAdmins_1 = require("../../controllers/admins/deleteAllAdmins");
 const router = express_1.default.Router();
-router.get("/get", getAllAdmins_1.getAdmins);
+router.get("/ge", getAllAdmins_1.getAdmins);
 router.get("/get/:id", getAdmin_1.getAdmin);
 router.post("/create", registerAdmin_1.registerAdmin);
 router.patch("/update/:id", updateAdmin_1.updateAdmin);

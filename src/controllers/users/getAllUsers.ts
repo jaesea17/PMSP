@@ -10,7 +10,7 @@ export async function getUsers(req: express.Request, res: express.Response) {
 
         return res.status(200).json({
             message: 'Retrieved users successfully',
-            products: rows
+            users: rows
         })
     } catch (err) {
         res.status(500).json({

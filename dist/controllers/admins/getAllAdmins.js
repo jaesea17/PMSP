@@ -10,7 +10,7 @@ async function getAdmins(req, res) {
         });
         return res.status(200).json({
             message: 'Retrieved admins successfully',
-            products: rows
+            admins: rows
         });
     }
     catch (err) {

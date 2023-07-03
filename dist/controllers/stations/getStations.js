@@ -10,7 +10,7 @@ async function getStations(req, res) {
         });
         return res.status(200).json({
             message: 'Retrieved Stations successfully',
-            products: rows
+            stations: rows
         });
     }
     catch (err) {

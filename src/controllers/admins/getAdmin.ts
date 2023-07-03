@@ -13,7 +13,7 @@ export async function getAdmin(req: express.Request, res: express.Response) {
         })
         return res.status(200).json({
             message: 'Retrieved admin successfully',
-            product: record
+            admin: record
         })
     } catch (err) {
         res.status(500).json({

@@ -10,7 +10,7 @@ async function getUsers(req, res) {
         });
         return res.status(200).json({
             message: 'Retrieved users successfully',
-            products: rows
+            users: rows
         });
     }
     catch (err) {

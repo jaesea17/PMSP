@@ -10,7 +10,7 @@ async function getPetrols(req, res) {
         });
         return res.status(200).json({
             message: 'Retrieved Petrol commodities successfully',
-            products: rows
+            commodities: rows
         });
     }
     catch (err) {

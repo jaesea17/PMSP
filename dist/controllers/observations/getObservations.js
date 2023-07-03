@@ -12,7 +12,7 @@ async function getObservations(req, res) {
         console.log("observationRoutes 12", rows);
         return res.status(200).json({
             message: 'Retrieved observations successfully',
-            products: rows
+            observations: rows
         });
     }
     catch (err) {

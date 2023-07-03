@@ -12,7 +12,7 @@ export async function getObservations(req: express.Request, res: express.Respons
         console.log("observationRoutes 12", rows)
         return res.status(200).json({
             message: 'Retrieved observations successfully',
-            products: rows
+            observations: rows
         })
     } catch (err) {
         res.status(500).json({

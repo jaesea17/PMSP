@@ -26,5 +26,5 @@ StationsInstance.init({
 })
 
 //Establishing the one to many relationship
-StationsInstance.hasMany(PetrolInstance, { foreignKey: 'stationId', as: 'commodity' });
+StationsInstance.hasMany(PetrolInstance, { foreignKey: 'stationId', as: 'commodities' });
 PetrolInstance.belongsTo(StationsInstance, { foreignKey: 'stationId', as: "station" });
