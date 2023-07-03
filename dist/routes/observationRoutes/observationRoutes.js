@@ -9,11 +9,12 @@ const getObservations_1 = require("../../controllers/observations/getObservation
 const createObservation_1 = require("../../controllers/observations/createObservation");
 const deleteObservation_1 = require("../../controllers/observations/deleteObservation");
 const deleteObservations_1 = require("../../controllers/observations/deleteObservations");
+const updateObservation_1 = require("../../controllers/observations/updateObservation");
 const router = express_1.default.Router();
 router.get("/get/:id", getObservation_1.getObservation);
 router.get("/get", getObservations_1.getObservations);
 router.post("/create", createObservation_1.createObservation);
-router.patch("/update/:id");
+router.patch("/update/:id", updateObservation_1.updateObservation);
 router.delete("/delete/:id", deleteObservation_1.deleteObservation);
 router.delete("/delete", deleteObservations_1.deleteAllObservations);
 exports.default = router;

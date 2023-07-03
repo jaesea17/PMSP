@@ -4,6 +4,7 @@ import { getObservations } from "../../controllers/observations/getObservations"
 import { createObservation } from "../../controllers/observations/createObservation";
 import { deleteObservation } from "../../controllers/observations/deleteObservation";
 import { deleteAllObservations } from "../../controllers/observations/deleteObservations";
+import { updateObservation } from "../../controllers/observations/updateObservation";
 
 
 const router = express.Router();
@@ -13,7 +14,7 @@ router.get("/get", getObservations);
 
 router.post("/create", createObservation);
 
-router.patch("/update/:id",);
+router.patch("/update/:id", updateObservation);
 
 router.delete("/delete/:id", deleteObservation);
 router.delete("/delete", deleteAllObservations)

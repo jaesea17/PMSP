@@ -1,6 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../../config/database.config'
-import { StationsInstance } from '../stations/stationsModel';
 import { ObservInstance } from '../userObservations/observationsModel';
 
 interface PetrolAttributes {
