@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createPetrol = void 0;
 const uuid_1 = require("uuid");
 const petrolUtils_1 = require("../../../utils/commodities/petrolUtils");
-const options_1 = require("../../../utils/options");
+const options_1 = require("../../../utils/helpers/options");
 const petrolModel_1 = require("../../../models/commodities/petrolModel");
 async function createPetrol(req, res) {
     try {

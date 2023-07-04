@@ -3,7 +3,7 @@ import Joi from "joi";
 export const createObservationsSchema = Joi.object().keys({
     price: Joi.number().required(),
     queue: Joi.string().required(),
-    likes: Joi.number().required(),
+    likes: Joi.number(),
     userId: Joi.string().required(),
     commodityId: Joi.string().required()
 })

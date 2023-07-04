@@ -1,7 +1,7 @@
 import express from "express";
 import { v4 as uuid4 } from "uuid";
 import { createPetrolSchema } from "../../../utils/commodities/petrolUtils";
-import { options } from "../../../utils/options";
+import { options } from "../../../utils/helpers/options";
 import { PetrolInstance } from "../../../models/commodities/petrolModel";
 
 export async function createPetrol(req: express.Request | any, res: express.Response) {

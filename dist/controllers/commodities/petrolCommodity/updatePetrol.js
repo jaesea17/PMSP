@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updatePetrol = void 0;
 const petrolUtils_1 = require("../../../utils/commodities/petrolUtils");
 const petrolModel_1 = require("../../../models/commodities/petrolModel");
-const options_1 = require("../../../utils/options");
+const options_1 = require("../../../utils/helpers/options");
 async function updatePetrol(req, res) {
     // res.json({ message: 'Hello User' });
     try {
@@ -19,13 +19,12 @@ async function updatePetrol(req, res) {
                 Error: "Cannot find Petrol commodity",
             });
         }
-        const updatedTrip = await record.update({
-            id,
+        const updatedPetrol = await record.update({
             ...req.body
         });
         return res.status(200).json({
             message: 'You have successfully updated Petrol commodity',
-            record: updatedTrip
+            record: updatedPetrol
         });
     }
     catch (err) {

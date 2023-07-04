@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verifyUserToken = void 0;
+exports.verifyAdminToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const user_1 = require("../models/users/user");
+const admin_1 = require("../models/admins/admin");
 // verify token
-async function verifyUserToken(req, res, next) {
+async function verifyAdminToken(req, res, next) {
     try {
         const bearerHeader = req["headers"]["authorization"];
         if (!bearerHeader) {
@@ -20,9 +20,9 @@ async function verifyUserToken(req, res, next) {
             return res.status(403).json({ Error: "Unauthorized user" });
         }
         const { id } = verified;
-        const owner = await user_1.UsersInstance.findOne({ where: { id } });
+        const owner = await admin_1.AdminsInstance.findOne({ where: { id } });
         if (!owner) {
-            return res.status(403).json({ Error: "Author not verified" });
+            return res.status(403).json({ Error: "Admin not verified" });
         }
         req.ownerId = id;
         next();
@@ -32,4 +32,4 @@ async function verifyUserToken(req, res, next) {
         res.status(401).json({ Error: "An error courred" });
     }
 }
-exports.verifyUserToken = verifyUserToken;
+exports.verifyAdminToken = verifyAdminToken;

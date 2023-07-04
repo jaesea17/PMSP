@@ -1,9 +1,9 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import { userSchema } from "../../utils/users/usersUtils";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 import { UsersInstance } from "../../models/users/user";
-import { generateToken } from "../../utils/generateToken";
+import { generateToken } from "../../utils/helpers/generateToken";
 
 export async function loginUser(req: express.Request, res: express.Response) {
     // const id = uuidv4();

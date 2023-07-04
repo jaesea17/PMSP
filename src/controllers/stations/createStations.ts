@@ -1,6 +1,6 @@
 import express from "express";
 import { createStationsSchema } from "../../utils/stations/stationsUtils";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 import { StationsInstance } from "../../models/stations/stationsModel";
 import { v4 as uuid4 } from 'uuid';
 import { log } from "console";

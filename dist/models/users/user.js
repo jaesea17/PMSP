@@ -20,6 +20,10 @@ UsersInstance.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
     },
+    // email: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false
+    // },
     password: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false

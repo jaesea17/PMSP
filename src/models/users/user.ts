@@ -5,6 +5,7 @@ import { ObservInstance } from '../userObservations/observationsModel';
 interface UsersAttributes {
     id: string,
     userName: string,
+    // email: string,
     password: string
 }
 
@@ -21,6 +22,10 @@ UsersInstance.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    // email: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false
+    // },
     password: {
         type: DataTypes.STRING,
         allowNull: false

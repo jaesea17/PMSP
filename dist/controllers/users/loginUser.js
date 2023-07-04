@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginUser = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const usersUtils_1 = require("../../utils/users/usersUtils");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 const user_1 = require("../../models/users/user");
-const generateToken_1 = require("../../utils/generateToken");
+const generateToken_1 = require("../../utils/helpers/generateToken");
 async function loginUser(req, res) {
     // const id = uuidv4();
     try {

@@ -8,7 +8,7 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const uuid_1 = require("uuid");
 const usersUtils_1 = require("../../utils/users/usersUtils");
 const user_1 = require("../../models/users/user");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 async function registerUser(req, res) {
     const id = (0, uuid_1.v4)();
     try {

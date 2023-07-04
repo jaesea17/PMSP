@@ -5,7 +5,6 @@ const observationsModel_1 = require("../../models/userObservations/observationsM
 async function getObservations(req, res) {
     try {
         const limit = req.query?.limit;
-        console.log("observationRoutes 7");
         const { count, rows } = await observationsModel_1.ObservInstance.findAndCountAll({
             where: {}, limit,
         });

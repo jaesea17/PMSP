@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 import { adminSchema } from "../../utils/admins/adminUtils";
 import { AdminsInstance } from "../../models/admins/admin";
 

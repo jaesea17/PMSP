@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateAdmin = void 0;
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 const adminUtils_1 = require("../../utils/admins/adminUtils");
 const admin_1 = require("../../models/admins/admin");
 async function updateAdmin(req, res) {

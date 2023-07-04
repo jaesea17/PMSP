@@ -1,5 +1,5 @@
 import express from "express";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 import { updateAdminSchema } from "../../utils/admins/adminUtils";
 import { AdminsInstance } from "../../models/admins/admin";
 

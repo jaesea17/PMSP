@@ -4,7 +4,7 @@ exports.createObservation = void 0;
 const uuid_1 = require("uuid");
 const observationsUtils_1 = require("../../utils/observations/observationsUtils");
 const observationsModel_1 = require("../../models/userObservations/observationsModel");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 async function createObservation(req, res) {
     try {
         const id = (0, uuid_1.v4)();
@@ -14,7 +14,8 @@ async function createObservation(req, res) {
         }
         const record = await observationsModel_1.ObservInstance.create({
             id,
-            ...req.body
+            ...req.body,
+            likes: 0
         });
         res.status(201).json({
             message: 'You have successfully created an observation',

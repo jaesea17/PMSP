@@ -1,12 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { AdminsInstance } from "../models/admins/admin";
-import { UsersInstance } from "../models/users/user";
-
-
 
 // verify token
-export async function verifyToken(
+export async function verifyAdminToken(
     req: Request,
     res: Response,
     next: NextFunction
@@ -28,11 +25,10 @@ export async function verifyToken(
 
         const { id } = verified as Record<string, string>;
 
-        const owner = await AdminsInstance.findOne({ where: { id } }) ||
-            await UsersInstance.findOne({ where: { id } });
+        const owner = await AdminsInstance.findOne({ where: { id } });
 
         if (!owner) {
-            return res.status(403).json({ Error: "Author not verified" });
+            return res.status(403).json({ Error: "Admin not verified" });
         }
 
         req.ownerId = id;
@@ -42,3 +38,6 @@ export async function verifyToken(
         res.status(401).json({ Error: "An error courred" });
     }
 }
+
+
+

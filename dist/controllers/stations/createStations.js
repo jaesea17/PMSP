@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createStation = void 0;
 const stationsUtils_1 = require("../../utils/stations/stationsUtils");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 const stationsModel_1 = require("../../models/stations/stationsModel");
 const uuid_1 = require("uuid");
 async function createStation(req, res) {

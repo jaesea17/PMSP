@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 import { userSchema } from "../../utils/users/usersUtils";
 import { UsersInstance } from "../../models/users/user";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 
 export async function registerUser(req: express.Request, res: express.Response) {
     const id = uuidv4();

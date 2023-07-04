@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { options } from "../../utils/options";
-import { generateToken } from "../../utils/generateToken";
+import { options } from "../../utils/helpers/options";
+import { generateToken } from "../../utils/helpers/generateToken";
 import { adminLoginSchema } from "../../utils/admins/adminUtils";
 import { AdminsInstance } from "../../models/admins/admin";
 

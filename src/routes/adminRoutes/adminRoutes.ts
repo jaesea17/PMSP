@@ -8,7 +8,7 @@ import { deleteAdmins } from "../../controllers/admins/deleteAllAdmins";
 
 const router = express.Router();
 
-router.get("/ge", getAdmins);
+router.get("/get", getAdmins);
 router.get("/get/:id", getAdmin);
 
 router.post("/create", registerAdmin);

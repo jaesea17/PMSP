@@ -14,6 +14,6 @@ exports.createPetrolSchema = joi_1.default.object().keys({
 exports.updatePetrolSchema = joi_1.default.object().keys({
     price: joi_1.default.number(),
     isAvailable: joi_1.default.boolean(),
-    commodity: joi_1.default.string().required(),
+    commodity: joi_1.default.string(),
     stationId: joi_1.default.string()
 });

@@ -10,6 +10,6 @@ export const createPetrolSchema = Joi.object().keys({
 export const updatePetrolSchema = Joi.object().keys({
     price: Joi.number(),
     isAvailable: Joi.boolean(),
-    commodity: Joi.string().required(),
+    commodity: Joi.string(),
     stationId: Joi.string()
 })

@@ -2,7 +2,7 @@ import express from "express";
 import { v4 as uuid4 } from 'uuid';
 import { createObservationsSchema } from "../../utils/observations/observationsUtils";
 import { ObservInstance } from "../../models/userObservations/observationsModel";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 
 
 export async function createObservation(req: express.Request | any, res: express.Response) {
@@ -16,7 +16,8 @@ export async function createObservation(req: express.Request | any, res: express
 
         const record = await ObservInstance.create({
             id,
-            ...req.body
+            ...req.body,
+            likes: 0
         })
         res.status(201).json({
             message: 'You have successfully created an observation',

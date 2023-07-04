@@ -1,7 +1,7 @@
 import express from "express";
 import { updateStationsSchema } from "../../utils/stations/stationsUtils";
 import { StationsInstance } from "../../models/stations/stationsModel";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 
 export async function updateStation(req: express.Request, res: express.Response) {
     // res.json({ message: 'Hello User' });

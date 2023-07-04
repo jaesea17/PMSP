@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerAdmin = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const uuid_1 = require("uuid");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 const adminUtils_1 = require("../../utils/admins/adminUtils");
 const admin_1 = require("../../models/admins/admin");
 async function registerAdmin(req, res) {

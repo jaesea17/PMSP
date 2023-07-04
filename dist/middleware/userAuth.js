@@ -22,7 +22,7 @@ async function verifyUserToken(req, res, next) {
         const { id } = verified;
         const owner = await user_1.UsersInstance.findOne({ where: { id } });
         if (!owner) {
-            return res.status(403).json({ Error: "Author not verified" });
+            return res.status(403).json({ Error: "User not verified" });
         }
         req.ownerId = id;
         next();

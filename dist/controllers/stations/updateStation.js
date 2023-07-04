@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateStation = void 0;
 const stationsUtils_1 = require("../../utils/stations/stationsUtils");
 const stationsModel_1 = require("../../models/stations/stationsModel");
-const options_1 = require("../../utils/options");
+const options_1 = require("../../utils/helpers/options");
 async function updateStation(req, res) {
     // res.json({ message: 'Hello User' });
     try {

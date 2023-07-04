@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginAdmin = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const options_1 = require("../../utils/options");
-const generateToken_1 = require("../../utils/generateToken");
+const options_1 = require("../../utils/helpers/options");
+const generateToken_1 = require("../../utils/helpers/generateToken");
 const adminUtils_1 = require("../../utils/admins/adminUtils");
 const admin_1 = require("../../models/admins/admin");
 async function loginAdmin(req, res) {

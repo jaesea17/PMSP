@@ -1,7 +1,7 @@
 import express from "express";
 import { updateUsersSchema } from "../../utils/users/usersUtils";
 import { UsersInstance } from "../../models/users/user";
-import { options } from "../../utils/options";
+import { options } from "../../utils/helpers/options";
 
 export async function updateUser(req: express.Request, res: express.Response) {
     // res.json({ message: 'Hello User' });

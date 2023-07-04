@@ -1,7 +1,7 @@
 import express from "express";
 import { updatePetrolSchema } from "../../../utils/commodities/petrolUtils";
 import { PetrolInstance } from "../../../models/commodities/petrolModel";
-import { options } from "../../../utils/options";
+import { options } from "../../../utils/helpers/options";
 
 export async function updatePetrol(req: express.Request, res: express.Response) {
     // res.json({ message: 'Hello User' });
@@ -22,14 +22,13 @@ export async function updatePetrol(req: express.Request, res: express.Response) 
             })
         }
 
-        const updatedTrip = await record.update({
-            id,
+        const updatedPetrol = await record.update({
             ...req.body
         })
 
         return res.status(200).json({
             message: 'You have successfully updated Petrol commodity',
-            record: updatedTrip
+            record: updatedPetrol
         })
 
     } catch (err) {
