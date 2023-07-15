@@ -1,14 +1,13 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import { userSchema } from "../../utils/users/usersUtils";
+import { loginUserSchema } from "../../utils/users/usersUtils";
 import { options } from "../../utils/helpers/options";
 import { UsersInstance } from "../../models/users/user";
 import { generateToken } from "../../utils/helpers/generateToken";
 
 export async function loginUser(req: express.Request, res: express.Response) {
-    // const id = uuidv4();
     try {
-        const validationResult = userSchema.validate(req.body, options);
+        const validationResult = loginUserSchema.validate(req.body, options);
         if (validationResult.error) {
             return res.status(400).json({
                 Error: validationResult.error.details[0].message,
@@ -38,7 +37,7 @@ export async function loginUser(req: express.Request, res: express.Response) {
         if (validUser) {
             return res.status(200).json({
                 message: "Login successful",
-                token
+                token,
             });
         }
     } catch (err) {

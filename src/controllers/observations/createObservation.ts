@@ -8,6 +8,7 @@ import { options } from "../../utils/helpers/options";
 export async function createObservation(req: express.Request | any, res: express.Response) {
     try {
         const id = uuid4();
+        const userId = req.ownerId;
         const validationResult = createObservationsSchema.validate(req.body, options);
 
         if (validationResult.error) {
@@ -17,7 +18,9 @@ export async function createObservation(req: express.Request | any, res: express
         const record = await ObservInstance.create({
             id,
             ...req.body,
-            likes: 0
+            userId,
+            likes: 0,
+            queue: "Long"
         })
         res.status(201).json({
             message: 'You have successfully created an observation',

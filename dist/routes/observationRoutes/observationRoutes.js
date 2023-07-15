@@ -10,10 +10,11 @@ const createObservation_1 = require("../../controllers/observations/createObserv
 const deleteObservation_1 = require("../../controllers/observations/deleteObservation");
 const deleteObservations_1 = require("../../controllers/observations/deleteObservations");
 const updateObservation_1 = require("../../controllers/observations/updateObservation");
+const userAuth_1 = require("../../middleware/userAuth");
 const router = express_1.default.Router();
 router.get("/get/:id", getObservation_1.getObservation);
 router.get("/get", getObservations_1.getObservations);
-router.post("/create", createObservation_1.createObservation);
+router.post("/create", userAuth_1.verifyUserToken, createObservation_1.createObservation);
 router.patch("/update/:id", updateObservation_1.updateObservation);
 router.delete("/delete/:id", deleteObservation_1.deleteObservation);
 router.delete("/delete", deleteObservations_1.deleteAllObservations);

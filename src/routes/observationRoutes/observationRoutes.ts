@@ -5,6 +5,7 @@ import { createObservation } from "../../controllers/observations/createObservat
 import { deleteObservation } from "../../controllers/observations/deleteObservation";
 import { deleteAllObservations } from "../../controllers/observations/deleteObservations";
 import { updateObservation } from "../../controllers/observations/updateObservation";
+import { verifyUserToken } from "../../middleware/userAuth";
 
 
 const router = express.Router();
@@ -12,7 +13,7 @@ const router = express.Router();
 router.get("/get/:id", getObservation);
 router.get("/get", getObservations);
 
-router.post("/create", createObservation);
+router.post("/create", verifyUserToken, createObservation);
 
 router.patch("/update/:id", updateObservation);
 

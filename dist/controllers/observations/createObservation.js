@@ -8,6 +8,7 @@ const options_1 = require("../../utils/helpers/options");
 async function createObservation(req, res) {
     try {
         const id = (0, uuid_1.v4)();
+        const userId = req.ownerId;
         const validationResult = observationsUtils_1.createObservationsSchema.validate(req.body, options_1.options);
         if (validationResult.error) {
             return res.status(400).json({ Error: validationResult.error.details[0].message });
@@ -15,7 +16,9 @@ async function createObservation(req, res) {
         const record = await observationsModel_1.ObservInstance.create({
             id,
             ...req.body,
-            likes: 0
+            userId,
+            likes: 0,
+            queue: "Long"
         });
         res.status(201).json({
             message: 'You have successfully created an observation',

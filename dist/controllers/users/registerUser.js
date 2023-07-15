@@ -12,7 +12,7 @@ const options_1 = require("../../utils/helpers/options");
 async function registerUser(req, res) {
     const id = (0, uuid_1.v4)();
     try {
-        const validationResult = usersUtils_1.userSchema.validate(req.body, options_1.options);
+        const validationResult = usersUtils_1.registerUserSchema.validate(req.body, options_1.options);
         if (validationResult.error) {
             return res.status(400).json({
                 Error: validationResult.error.details[0].message,

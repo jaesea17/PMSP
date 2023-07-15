@@ -9,9 +9,9 @@ const user_1 = require("../models/users/user");
 // verify token
 async function verifyUserToken(req, res, next) {
     try {
-        const bearerHeader = req["headers"]["authorization"];
+        const bearerHeader = req.headers?.authorization;
         if (!bearerHeader) {
-            return res.status(404).json({ Error: "Admin  not verified" });
+            return res.status(404).json({ Error: "User  not verified" });
         }
         // const token = bearerHeader?.slice(7, bearerHeader.length) as string;
         const token = bearerHeader?.split(' ')[1];

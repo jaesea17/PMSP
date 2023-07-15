@@ -12,6 +12,7 @@ async function updateObservation(req, res) {
         const { id } = req.params;
         const { likes, price } = req.body;
         const { commodityId, observationId } = (0, extractIds_1.getIds)(id);
+        console.log("updateObservation 15: ", req.body);
         const validateUpdate = observationsUtils_1.updateObservationsSchema.validate(req.body, options_1.options);
         if (validateUpdate.error) {
             return res.status(400).json({ Error: validateUpdate.error.details[0].message });

@@ -10,9 +10,8 @@ const options_1 = require("../../utils/helpers/options");
 const user_1 = require("../../models/users/user");
 const generateToken_1 = require("../../utils/helpers/generateToken");
 async function loginUser(req, res) {
-    // const id = uuidv4();
     try {
-        const validationResult = usersUtils_1.userSchema.validate(req.body, options_1.options);
+        const validationResult = usersUtils_1.loginUserSchema.validate(req.body, options_1.options);
         if (validationResult.error) {
             return res.status(400).json({
                 Error: validationResult.error.details[0].message,
@@ -37,7 +36,7 @@ async function loginUser(req, res) {
         if (validUser) {
             return res.status(200).json({
                 message: "Login successful",
-                token
+                token,
             });
         }
     }

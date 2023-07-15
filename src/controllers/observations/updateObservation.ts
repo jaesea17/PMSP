@@ -12,6 +12,8 @@ export async function updateObservation(req: express.Request, res: express.Respo
         const { likes, price } = req.body
         const { commodityId, observationId } = getIds(id)
 
+        console.log("updateObservation 15: ", req.body)
+
         const validateUpdate = updateObservationsSchema.validate(req.body, options)
 
         if (validateUpdate.error) {

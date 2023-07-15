@@ -1,14 +1,14 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
-import { userSchema } from "../../utils/users/usersUtils";
+import { registerUserSchema } from "../../utils/users/usersUtils";
 import { UsersInstance } from "../../models/users/user";
 import { options } from "../../utils/helpers/options";
 
 export async function registerUser(req: express.Request, res: express.Response) {
     const id = uuidv4();
     try {
-        const validationResult = userSchema.validate(req.body, options);
+        const validationResult = registerUserSchema.validate(req.body, options);
         if (validationResult.error) {
             return res.status(400).json({
                 Error: validationResult.error.details[0].message,
