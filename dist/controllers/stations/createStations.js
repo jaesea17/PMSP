@@ -9,17 +9,18 @@ async function createStation(req, res) {
     try {
         const id = (0, uuid_1.v4)();
         const validationResult = stationsUtils_1.createStationsSchema.validate(req.body, options_1.options);
+        const name = req.body.name.toUpperCase();
         if (validationResult.error) {
             return res.status(400).json({ Error: validationResult.error.details[0].message });
         }
-        if (await stationsModel_1.StationsInstance.findOne({ where: { name: req.body.name } })) {
+        if (await stationsModel_1.StationsInstance.findOne({ where: { name } })) {
             return res.status(409).json({
                 message: "Station already Exist"
             });
         }
         const record = await stationsModel_1.StationsInstance.create({
             id,
-            ...req.body
+            name
         });
         res.status(201).json({
             message: 'You have successfully created a Station',

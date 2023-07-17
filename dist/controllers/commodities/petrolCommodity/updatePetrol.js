@@ -30,7 +30,7 @@ async function updatePetrol(req, res) {
     catch (err) {
         return res.status(500).json({
             message: 'failed to update Petrol commodity',
-            route: '/update/:id'
+            route: '/admin/update/:id'
         });
     }
 }

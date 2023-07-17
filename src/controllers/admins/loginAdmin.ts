@@ -46,7 +46,7 @@ export async function loginAdmin(req: express.Request, res: express.Response) {
         console.log(err)
         return res.status(500).json({
             msg: "failed to login",
-            route: "/login",
+            route: "/admin/login",
         });
     }
 }

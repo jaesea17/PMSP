@@ -7,7 +7,7 @@ exports.updatePetrolSchema = exports.createPetrolSchema = void 0;
 const joi_1 = __importDefault(require("joi"));
 exports.createPetrolSchema = joi_1.default.object().keys({
     price: joi_1.default.number().required(),
-    isAvailable: joi_1.default.boolean().required(),
+    isAvailable: joi_1.default.boolean(),
     commodity: joi_1.default.string().required(),
     stationId: joi_1.default.string().required()
 });

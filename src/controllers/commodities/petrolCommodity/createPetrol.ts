@@ -16,7 +16,8 @@ export async function createPetrol(req: express.Request | any, res: express.Resp
         console.log("createPetrol 16");
         const record = await PetrolInstance.create({
             id,
-            ...req.body
+            ...req.body,
+            isAvailable: true
         })
         res.status(201).json({
             message: 'You have successfully created Petrol commodity',

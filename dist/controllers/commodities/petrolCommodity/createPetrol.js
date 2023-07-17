@@ -17,7 +17,8 @@ async function createPetrol(req, res) {
         console.log("createPetrol 16");
         const record = await petrolModel_1.PetrolInstance.create({
             id,
-            ...req.body
+            ...req.body,
+            isAvailable: true
         });
         res.status(201).json({
             message: 'You have successfully created Petrol commodity',

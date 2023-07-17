@@ -9,19 +9,20 @@ export async function createStation(req: express.Request | any, res: express.Res
     try {
         const id = uuid4();
         const validationResult = createStationsSchema.validate(req.body, options);
+        const name = req.body.name.toUpperCase()
 
         if (validationResult.error) {
             return res.status(400).json({ Error: validationResult.error.details[0].message })
         }
 
-        if (await StationsInstance.findOne({ where: { name: req.body.name } })) {
+        if (await StationsInstance.findOne({ where: { name } })) {
             return res.status(409).json({
                 message: "Station already Exist"
             })
         }
         const record = await StationsInstance.create({
             id,
-            ...req.body
+            name
         })
         res.status(201).json({
             message: 'You have successfully created a Station',

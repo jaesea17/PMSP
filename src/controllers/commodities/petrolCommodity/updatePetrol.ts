@@ -34,7 +34,7 @@ export async function updatePetrol(req: express.Request, res: express.Response) 
     } catch (err) {
         return res.status(500).json({
             message: 'failed to update Petrol commodity',
-            route: '/update/:id'
+            route: '/admin/update/:id'
         })
     }
 }
